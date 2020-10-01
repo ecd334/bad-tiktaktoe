@@ -1,0 +1,377 @@
+
+cells = ['_', '_', '_', '_', '_', '_', '_', '_', '_']
+wins = 2
+empties = 8
+x_count = 1
+o_count = 1
+amount = 0
+o_lst = 1
+x_lst = 1
+
+
+def board():
+    print("---------")
+    print("| " + cells[0] + " " + cells[1] + " " + cells[2] + " |")
+    print("| " + cells[3] + " " + cells[4] + " " + cells[5] + " |")
+    print("| " + cells[6] + " " + cells[7] + " " + cells[8] + " |")
+    print("---------")
+    return ""
+
+
+rows = ['_', '_', '_', '_', '_', '_', '_', '_', '_']
+columns = ['_', '_', '_', '_', '_', '_', '_', '_', '_']
+diagonals = ['_', '_', '_', '_', '_', '_']
+
+while amount <= 15:
+
+    if rows[0] == "O" and rows[1] == "O" and rows[2] == "O":  # checking rows for o wins
+        print("***************************")
+        print(board())
+        print("O WINS!!!!")
+        amount += 20
+        break
+    elif rows[3] == "O" and rows[4] == "O" and rows[5] == "O":
+        print("***************************")
+        print(board())
+        print("O WINS!!!!")
+        amount += 20
+        break
+    elif rows[6] == "O" and rows[7] == "O" and rows[8] == "O":
+        print("***************************")
+        print(board())
+        print("O WINS!!!!")
+        amount += 20
+        break
+    elif columns[0] == "O" and columns[1] == "O" and columns[2] == "O":  # checking columns for o wins
+        print("***************************")
+        print(board())
+        print("O WINS!!!!")
+        amount += 20
+        break
+    elif columns[3] == "O" and columns[4] == "O" and columns[5] == "O":
+        print("***************************")
+        print(board())
+        print("O WINS!!!!")
+        amount += 20
+        break
+    elif columns[6] == "O" and columns[7] == "O" and columns[8] == "O":
+        print("***************************")
+        print(board())
+        print("O WINS!!!!")
+        amount += 20
+        break
+    elif diagonals[0] == "O" and diagonals[1] == "O" and diagonals[2] == "O":  # checking for o wins diagonal
+        print("***************************")
+        print(board())
+        print("O WINS!!!!")
+        amount += 20
+        break
+    elif diagonals[3] == "O" and diagonals[4] == "O" and diagonals[5] == "O":
+        print("***************************")
+        print(board())
+        print("O WINS!!!!")
+        amount += 20
+        break
+
+    x_lst -= 1
+    o_lst -= 1
+
+    while x_lst == 0 and amount <= 15:
+        print("***************************")
+        print(board())
+        spotx = input("Your move X :")
+
+        if spotx == "1" and cells[0] != "O" and cells[0] != "X":  # for x for 1st spot on board
+            cells[0] = "X"
+            rows[0] = "X"
+            columns[0] = "X"
+            diagonals[0] = "X"
+            x_count += 1
+            x_lst += 1
+            break
+        elif spotx == "1" and (cells[0] == "X" or cells[0] == "O"):
+            print("that spot is occupied!")
+            amount -= 1
+
+        elif spotx == "2" and cells[1] != "O" and cells[1] != "X":  # for x for 2nd spot on board
+            cells[1] = "X"
+            rows[1] = "X"
+            columns[3] = "X"
+            x_count += 1
+            empties -= 1
+            x_lst += 1
+            break
+        elif spotx == "2" and (cells[1] == "X" or cells[1] == "O"):
+            print("that spot is occupied!")
+            amount -= 1
+
+        elif spotx == "3" and cells[2] != "O" and cells[2] != "X":  # for x for 3rd spot on board
+            cells[2] = "X"
+            rows[2] = "X"
+            columns[6] = "X"
+            diagonals[3] = "X"
+            x_count += 1
+            empties -= 1
+            x_lst += 1
+            break
+        elif spotx == "3" and (cells[2] == "X" or cells[2] == "O"):
+            print("that spot is occupied!")
+            amount -= 1
+
+        elif spotx == "4" and cells[3] != "O" and cells[3] != "X":  # for x for 4th spot on board
+            cells[3] = "X"
+            rows[3] = "X"
+            columns[1] = "X"
+            x_count += 1
+            empties -= 1
+            x_lst += 1
+            break
+        elif spotx == "4" and (cells[3] == "X" or cells[3] == "O"):
+            print("that spot is occupied!")
+            amount -= 1
+
+        elif spotx == "5" and cells[4] != "O" and cells[4] != "X":  # for x for 5th spot on board
+            cells[4] = "X"
+            rows[4] = "X"
+            columns[4] = "X"
+            diagonals[1] = "X"
+            diagonals[4] = "X"
+            x_count += 1
+            empties -= 1
+            x_lst += 1
+            break
+        elif spotx == "5" and (cells[4] == "X" or cells[4] == "O"):
+            print("that spot is occupied!")
+            amount -= 1
+
+        elif spotx == "6" and cells[5] != "O" and cells[5] != "X":  # for x for 6th spot on board
+            cells[5] = "X"
+            rows[5] = "X"
+            columns[7] = "X"
+            x_count += 1
+            empties -= 1
+            x_lst += 1
+            break
+        elif spotx == "6" and (cells[5] == "X" or cells[5] == "O"):
+            print("that spot is occupied!")
+            amount -= 1
+
+        elif spotx == "7" and cells[6] != "O" and cells[6] != "X":  # for x for 7th spot on board
+            cells[6] = "X"
+            rows[6] = "X"
+            columns[2] = "X"
+            diagonals[5] = "X"
+            x_count += 1
+            empties -= 1
+            x_lst += 1
+            break
+        elif spotx == "7" and (cells[6] == "X" or cells[6] == "O"):
+            print("that spot is occupied!")
+            amount -= 1
+
+        elif spotx == "8" and cells[7] != "O" and cells[7] != "X":  # for x for 8th spot on board
+            cells[7] = "X"
+            rows[7] = "X"
+            columns[5] = "X"
+            x_count += 1
+            empties -= 1
+            x_lst += 1
+            break
+        elif spotx == "8" and (cells[7] == "X" or cells[7] == "O"):
+            print("that spot is occupied!")
+            amount -= 1
+
+        elif spotx == "9" and cells[8] != "O" and cells[8] != "X":  # for x for 9th spot on board
+            cells[8] = "X"
+            rows[8] = "X"
+            columns[8] = "X"
+            diagonals[2] = "X"
+            x_count += 1
+            empties -= 1
+            x_lst += 1
+            break
+        elif spotx == "9" and (cells[8] == "X" or cells[8] == "O"):
+            print("that spot is occupied!")
+            amount -= 1
+        else:
+            print("Please enter a spot from 1 through 9")  # error message if a number of 1-9 isn't inputted
+            amount -= 1
+
+    if empties == 0:                           # checking for tie
+        print(board())
+        print("Tie Game...")
+        amount += 20
+        break
+
+    if rows[0] == "X" and rows[1] == "X" and rows[2] == "X":
+        print("***************************")                   # checking rows for x wins
+        print(board())
+        print("X WINS!!!!")
+        amount += 20
+        break
+    elif rows[3] == "X" and rows[4] == "X" and rows[5] == "X":
+        print("***************************")
+        print(board())
+        print("X WINS!!!!")
+        amount += 20
+        break
+    elif rows[6] == "X" and rows[7] == "X" and rows[8] == "X":
+        print("***************************")
+        print(board())
+        print("X WINS!!!!")
+        amount += 20
+        break
+    elif columns[0] == "X" and columns[1] == "X" and columns[2] == "X":  # checking columns for x wins
+        print("***************************")
+        print(board())
+        print("X WINS!!!!")
+        amount += 20
+        break
+    elif columns[3] == "X" and columns[4] == "X" and columns[5] == "X":
+        print("***************************")
+        print(board())
+        print("X WINS!!!!")
+        amount += 20
+        break
+    elif columns[6] == "X" and columns[7] == "X" and columns[8] == "X":
+        print("***************************")
+        print(board())
+        print("X WINS!!!!")
+        amount += 20
+        break
+        # checking diagonals
+    elif diagonals[0] == "X" and diagonals[1] == "X" and diagonals[2] == "X":  # checking for x wins diagonal
+        print("***************************")
+        print(board())
+        print("X WINS!!!!")
+        amount += 20
+        break
+    elif diagonals[3] == "X" and diagonals[4] == "X" and diagonals[5] == "X":
+        print("***************************")
+        print(board())
+        print("X WINS!!!!")
+        amount += 20
+        break
+
+    while o_lst == 0 and amount <= 15:
+        print("***************************")
+        print(board())
+        spoto = input("Your move O :")
+
+        if spoto == "1" and cells[0] != "O" and cells[0] != "X":  # for o in the 1st spot on board
+            cells[0] = "O"
+            rows[0] = "O"
+            columns[0] = "O"
+            diagonals[0] = "O"
+            o_count += 1
+            empties -= 1
+            o_lst += 1
+            break
+        elif spoto == "1" and (cells[0] == "X" or cells[0] == "O"):
+            print("that spot is occupied!")
+            amount -= 1
+
+        elif spoto == "2" and cells[1] != "O" and cells[1] != "X":  # for o in 2nd spot on board
+            cells[1] = "O"
+            rows[1] = "O"
+            columns[3] = "O"
+            o_count += 1
+            empties -= 1
+            o_lst += 1
+            break
+        elif spoto == "2" and (cells[1] == "X" or cells[1] == "O"):
+            print("that spot is occupied!")
+            amount -= 1
+
+        elif spoto == "3" and cells[2] != "O" and cells[2] != "X":  # for o in 3rd spot on board
+            cells[2] = "O"
+            rows[2] = "O"
+            columns[6] = "O"
+            diagonals[3] = "O"
+            o_count += 1
+            empties -= 1
+            o_lst += 1
+            break
+        elif spoto == "3" and (cells[2] == "X" or cells[2] == "O"):
+            print("that spot is occupied!")
+            amount -= 1
+
+        elif spoto == "4" and cells[3] != "O" and cells[3] != "X":  # for o in 4th spot on board
+            cells[3] = "O"
+            rows[3] = "O"
+            columns[1] = "O"
+            o_count += 1
+            empties -= 1
+            o_lst += 1
+            break
+        elif spoto == "4" and (cells[3] == "X" or cells[3] == "O"):
+            print("that spot is occupied!")
+            amount -= 1
+
+        elif spoto == "5" and cells[4] != "O" and cells[4] != "X":  # for o in 5th spot on board
+            cells[4] = "O"
+            rows[4] = "O"
+            columns[4] = "O"
+            diagonals[1] = "O"
+            diagonals[4] = "O"
+            o_count += 1
+            empties -= 1
+            o_lst += 1
+            break
+        elif spoto == "5" and (cells[4] == "X" or cells[4] == "O"):
+            print("that spot is occupied!")
+            amount -= 1
+
+        elif spoto == "6" and cells[5] != "O" and cells[5] != "X":  # for o in 6th spot on board
+            cells[5] = "O"
+            rows[5] = "O"
+            columns[7] = "O"
+            o_count += 1
+            empties -= 1
+            o_lst += 1
+            break
+        elif spoto == "6" and (cells[5] == "X" or cells[5] == "O"):
+            print("that spot is occupied!")
+            amount -= 1
+
+        elif spoto == "7" and cells[6] != "O" and cells[6] != "X":  # for o in 7th spot on board
+            cells[6] = "O"
+            rows[6] = "O"
+            columns[2] = "O"
+            diagonals[5] = "O"
+            o_count += 1
+            empties -= 1
+            o_lst += 1
+            break
+        elif spoto == "7" and (cells[6] == "X" or cells[6] == "O"):
+            print("that spot is occupied!")
+            amount -= 1
+
+        elif spoto == "8" and cells[7] != "O" and cells[7] != "X":  # for o in 8th spot on board
+            cells[7] = "O"
+            rows[7] = "O"
+            columns[5] = "O"
+            o_count += 1
+            empties -= 1
+            o_lst += 1
+            break
+        elif spoto == "8" and (cells[7] == "X" or cells[7] == "O"):
+            print("that spot is occupied!")
+            amount -= 1
+
+        elif spoto == "9" and cells[8] != "O" and cells[8] != "X":  # for o in 9th spot on board
+            cells[8] = "O"
+            rows[8] = "O"
+            columns[8] = "O"
+            diagonals[2] = "O"
+            o_count += 1
+            empties -= 1
+            o_lst += 1
+            break
+        elif spoto == "9" and (cells[8] == "X" or cells[8] == "O"):
+            print("that spot is occupied!")
+            amount -= 1
+
+        else:
+            print("Please enter a spot from 1 through 9")  # error message if user doesnt input a number that is 1-9
+            amount -= 1
